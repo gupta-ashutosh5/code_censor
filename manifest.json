@@ -15,12 +15,26 @@
     "tabs",
     "*://*.github.com/*"
   ],
+  "background": {
+    "scripts":["background.js"]
+  },
   "content_scripts": [
     {
       "matches": [
         "*://*.github.com/*"
       ],
       "js": [
+        "listener.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "js": [
+        "lib/test_cases/function/pull_request_file.js",
+        "lib/entities.js",
+        "lib/functions.js",
         "code_censor.js"
       ],
       "css": [
@@ -30,5 +44,9 @@
   ],
   "page_action": {
     "default_icon": "icon.png"
-  }
+  },
+  "web_accessible_resources": [
+    "assets/icons/*",
+    "lib/core.regex_tests.ser"
+  ]
 }
